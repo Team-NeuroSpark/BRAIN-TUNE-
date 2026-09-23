@@ -1,0 +1,10 @@
+streamlit>=1.37
+numpy
+pandas
+scipy
+scikit-learn
+pyserial
+joblib
+requests
+python-dotenv
+fpdf2
