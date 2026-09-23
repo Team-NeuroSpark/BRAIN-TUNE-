@@ -1,86 +1,205 @@
-# NeuroSpark
+# 🧠 BRAIN TUNE — EEG-Based Adaptive Music System
 
-## Team Name
-NeuroSpark  
+**Team NeuroSpark**
 
+BRAIN TUNE is an EEG-based adaptive music system that analyzes brain signals to estimate cognitive workload and recommends music through the **Spotify Web API**.
 
-## Team Members
-- Faheemah M — Team Leader
-- Ananya V Shahapur
-- Harshitha N C
+The system supports both real-time EEG input and simulated EEG data, allowing users to explore workload estimation and adaptive music recommendations.
 
-## Problem Statement
-Most productivity and focus tools rely on static playlists or generic "focus music" that don't respond to how a person is actually doing cognitively in the moment — someone might be overloaded, understimulated, or in steady focus, and the music never adapts to reflect that.
+---
 
-## Solution Overview
-NeuroSpark is a live dashboard that reads EEG signals, classifies cognitive workload (**low / moderate / high**) using a trained Random Forest model, and adapts the music being played based on that state in real time — calm/ambient when overloaded, upbeat when understimulated, and steady instrumental for sustained focus. The full loop is: **EEG signal → feature extraction → Random Forest classification → mood-tagged music recommendation (Jamendo API) → live Streamlit dashboard with like/skip feedback**, closing the gap between raw brain activity and an actual adaptive experience.
+## ✨ Features
 
-## PPT Link
+* **EEG Signal Acquisition:** Supports EEG data from connected hardware and simulated signals.
+* **Real-Time Processing:** Processes EEG signals in windows to extract relevant features.
+* **Cognitive Workload Classification:** Uses a trained machine-learning model to classify workload levels.
+* **Adaptive Music Recommendations:** Uses Spotify to search for tracks based on the estimated workload.
+* **Interactive Dashboard:** Streamlit interface for viewing EEG signals, workload predictions, and music recommendations.
+* **Feedback Logging:** Records user feedback to support future evaluation and improvements.
 
+---
 
-## Live Demonstration Link
-[View Presentation](https://drive.google.com/file/d/1wzkMxBb6dFUizY4VHZdbcbrVaxwZx3fd/view?usp=drivesdk)
+## 🧠 System Workflow
 
-## Deployed Link
-https://neuro-spark.onrender.com
+1. Acquire EEG data from hardware or use simulated data.
+2. Preprocess the signal and extract relevant features.
+3. Pass the features to the trained workload classification model.
+4. Estimate the user's cognitive workload.
+5. Use the workload result to guide music selection.
+6. Search Spotify and display recommended tracks in the dashboard.
 
-## Technology Stack
-- **Frontend/Dashboard:** Streamlit
-- **ML Model:** scikit-learn (Random Forest classifier)
-- **Signal Processing:** NumPy, SciPy (band-power feature extraction)
-- **Music API:** Jamendo API
-- **Hardware:** BioAmp EXG Pill + Arduino (live EEG acquisition)
-- **Data:** Pandas, joblib (model persistence)
-- **Language:** Python
+---
 
-## Why
-Most "focus music" apps just play a static playlist. NeuroSpark tries to close the loop: **read your brain state → determine what you need → adapt the music**, all in real time.
+## 🛠️ Technology Stack
 
-## Setup Instructions
+| Component            | Technology                               |
+| -------------------- | ---------------------------------------- |
+| Programming Language | Python                                   |
+| Dashboard            | Streamlit                                |
+| Machine Learning     | Scikit-learn                             |
+| Signal Processing    | NumPy, SciPy                             |
+| Data Processing      | Pandas                                   |
+| Model Storage        | Joblib                                   |
+| Music Integration    | Spotify Web API                          |
+| EEG Hardware         | Arduino-compatible EEG acquisition setup |
+
+---
+
+## 📁 Project Structure
+
+```text
+BRAIN-TUNE/
+├── arduino/
+│   └── arduino_eeg_reader.ino
+├── data/
+│   ├── feedback_log.json
+│   └── merged_eeg_datas_50_subjects.csv
+├── models/
+│   └── workload_classifier.joblib
+├── notebooks/
+│   └── 01_eda_and_training.ipynb
+├── src/
+│   ├── dataset.py
+│   └── features.py
+├── config.py
+├── eeg_source.py
+├── music_engine.py
+├── streamlit_app.py
+├── train.py
+├── test_eeg_source.py
+├── requirements.txt
+├── .env.example
+├── .gitignore
+└── README.md
+```
+
+---
+
+## ⚙️ Installation and Setup
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Team-NeuroSpark/BRAIN-TUNE.git
+cd BRAIN-TUNE
+```
+
+### 2. Create a virtual environment
+
+```bash
+python -m venv venv
+```
+
+Activate it on Windows:
+
+```powershell
+.\venv\Scripts\Activate.ps1
+```
+
+If PowerShell blocks activation, you can use Command Prompt:
+
+```cmd
+venv\Scripts\activate.bat
+```
+
+### 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Get a free Jamendo client ID from [Jamendo Developer Portal](https://devportal.jamendo.com), then:
+### 4. Configure Spotify API credentials
 
-```bash
-cp .env.example .env
+1. Open the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard).
+2. Create or select an application.
+3. Obtain the Spotify Client ID and Client Secret.
+4. Create a `.env` file in the project root.
+5. Add your credentials:
+
+```env
+SPOTIFY_CLIENT_ID=your_spotify_client_id
+SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
 ```
 
-Edit `.env` and add your `JAMENDO_CLIENT_ID`.
+**Keep your `.env` file private. Do not commit API credentials or secrets to GitHub.**
 
-Then run:
+If sharing the project, provide a `.env.example` file containing only placeholder values.
+
+---
+
+## ▶️ Running the Application
+
+From the project root, run:
 
 ```bash
 streamlit run streamlit_app.py
 ```
 
-By default, NeuroSpark replays real EEG samples from the dataset (`SIMULATION_MODE = "dataset_replay"` in `config.py`), so no hardware is required. To use the actual Arduino board, switch `EEG_SOURCE` to `"arduino"` in `config.py`.
+Streamlit will provide a local URL to open the dashboard in your browser.
 
-## Model
+---
 
-A **Random Forest** model trained on 8 band-power features is used for cognitive workload classification. Evaluation uses a **held-out subject split**, ensuring the model is not trained and tested on the same person.
+## 📡 EEG Input Modes
 
-The current held-out macro-F1 is around **0.53**. Cognitive workload classification from EEG is a challenging 3-class problem, so this represents realistic rather than inflated performance.
+BRAIN TUNE is designed to support:
 
-See `notebooks/01_eda_and_training.ipynb` for the complete EDA and training workflow.
+* **Real-time mode:** Receives EEG data from the configured hardware and serial connection.
+* **Simulation mode:** Uses simulated EEG data for testing and demonstration when hardware is unavailable.
 
-## Project Structure
+Check `config.py` to configure the EEG source, sampling rate, window duration, and hardware connection settings.
 
-```text
-neurospark/
-├── streamlit_app.py          # Main dashboard
-├── eeg_source.py             # EEG input abstraction
-├── music_engine.py           # Jamendo recommendations + feedback logging
-├── config.py                 # Configuration and settings
-├── train.py                  # Model training script
-├── debug_jamendo.py          # Jamendo API testing script
-├── src/
-│   ├── features.py           # Band-power feature extraction
-│   └── dataset.py            # Training feature table generation
-├── models/                   # Trained classifier + metadata
-├── data/                     # EEG dataset
-├── notebooks/                # EDA + training notebook
-└── arduino/                  # Arduino firmware
+---
+
+## 🎵 Spotify Integration
+
+The music engine uses the Spotify Web API to search for tracks and provide Spotify links based on the system's workload classification.
+
+Spotify integration requires valid API credentials configured through environment variables.
+
+Music recommendations are intended for demonstration and research purposes. They are not medical advice or a substitute for professional assessment.
+
+---
+
+## 🧪 Model Training
+
+The project includes a training script and notebook for dataset exploration and model development.
+
+To run the training script:
+
+```bash
+python train.py
 ```
+
+The trained model is stored under the `models/` directory when training completes successfully.
+
+---
+
+## 🧰 Troubleshooting
+
+* **Spotify authentication errors:** Check that the Client ID and Client Secret are correct and loaded from `.env`.
+* **No tracks returned:** Check your internet connection and Spotify API access.
+* **EEG input not detected:** Verify the configured serial port, baud rate, wiring, and hardware connection.
+* **Simulation not working:** Check the EEG source and simulation settings in `config.py`.
+* **Missing Python packages:** Activate the virtual environment and run `pip install -r requirements.txt`.
+
+---
+
+## 🔐 Security Notes
+
+* Never upload `.env` or expose Spotify credentials.
+* Keep private keys, tokens, and personal data out of the repository.
+* Use `.env.example` for documenting required environment variables.
+
+---
+
+## 👥 Team
+
+**Team NeuroSpark**
+
+Project: **BRAIN TUNE — EEG-Based Adaptive Music System**
+
+---
+
+## 📄 Disclaimer
+
+BRAIN TUNE is a research and demonstration project. Cognitive workload estimates and music recommendations are experimental and should not be interpreted as clinical diagnoses or medical advice.
