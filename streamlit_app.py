@@ -31,8 +31,8 @@ st.markdown("""
     background: linear-gradient(180deg, #111d31, #0a101c);
     border-right: 1px solid rgba(148, 163, 184, .18);
   }
-  .block-container { padding-top: 2rem; max-width: 1380px; }
-  h1, h2, h3 { color: #f3f7ff !important; }
+.block-container { padding-top: 4rem; max-width: 1380px; }
+h1, h2, h3 { color: #f3f7ff !important; }
   [data-testid="stMetric"] {
     background: rgba(24, 39, 63, .72);
     border: 1px solid rgba(125, 170, 220, .22);
@@ -48,21 +48,16 @@ st.markdown("""
     border-radius: 12px !important;
     font-weight: 650 !important;
   }
-  .ns-hero {
-    padding: 26px 30px; border-radius: 22px; margin: 4px 0 22px;
-    background: linear-gradient(115deg, rgba(33, 86, 130, .72), rgba(91, 61, 145, .62));
-    border: 1px solid rgba(180, 205, 255, .25);
-    box-shadow: 0 18px 50px rgba(0,0,0,.22);
+  .neurospark-title {
+    font-size: 2.6rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    margin: 0 0 1.5rem 0;
+    color: #f3f7ff;
   }
-  .ns-kicker { text-transform: uppercase; letter-spacing: .18em; color: #b6d8ff; font-size: .76rem; font-weight: 700; }
-  .ns-hero h1 { margin: 7px 0 8px; font-size: 2.25rem; }
-  .ns-hero p { margin: 0; color: #d4e3f7; font-size: 1.02rem; }
 </style>
-<div class="ns-hero">
-  <div class="ns-kicker">NeuroSpark · EEG adaptive sound</div>
-  <h1>Find your focus flow.</h1>
-  <p>Live cognitive-state insights paired with instrumental, lyric-free music discovery.</p>
-</div>
+
+<div class="neurospark-title">NEUROSPARK</div>
 """, unsafe_allow_html=True)
 
 
