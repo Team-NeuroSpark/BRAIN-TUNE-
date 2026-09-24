@@ -7,7 +7,11 @@ BRAIN TUNE is an EEG-based adaptive music system that analyzes brain signals to 
 The system supports both real-time EEG input and simulated EEG data, allowing users to explore workload estimation and adaptive music recommendations.
 
 ---
-
+## Members
+Faheemah M
+Harshitha N C
+Ananya V Shahapur 
+----
 ## ✨ Features
 
 * **EEG Signal Acquisition:** Supports EEG data from connected hardware and simulated signals.
