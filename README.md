@@ -8,9 +8,9 @@ The system supports both real-time EEG input and simulated EEG data, allowing us
 
 ---
 ## Members
-Faheemah M
-Harshitha N C
-Ananya V Shahapur 
+1)Faheemah M
+2)Harshitha N C
+3)Ananya V Shahapur 
 ----
 ## ✨ Features
 
