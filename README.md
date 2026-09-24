@@ -173,6 +173,24 @@ python train.py
 The trained model is stored under the `models/` directory when training completes successfully.
 
 ---
+🔗 Project Links
+
+###  Live Demo
+
+**[Open NeuroSpark — BRAIN TUNE](https://brain-tune-neurospark-p7e1.onrender.com/)**
+
+The deployed application demonstrates the NeuroSpark dashboard and its EEG-based adaptive music workflow.
+
+### Video Demonstration
+
+**[Watch the Project Demo](https://drive.google.com/file/d/1J0JbXwy3bliS2QfDTVFWKo8QAPGh5IB4/view?usp=sharing)**
+
+The demonstration video covers the hardware setup, EEG acquisition, real-time dashboard, workload classification, and Spotify-based adaptive music recommendation.
+
+###  Presentation
+
+**[View Project Presentation](https://docs.google.com/presentation/d/1FFgX9_heGfrnNmV3dwQtXlpJy-XA7KKa/edit?usp=sharing&ouid=115081753363421060141&rtpof=true&sd=true)**
+
 
 ## 🧰 Troubleshooting
 
