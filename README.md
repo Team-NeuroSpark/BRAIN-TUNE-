@@ -1,4 +1,4 @@
-# 🧠 BRAIN TUNE — EEG-Based Adaptive Music System
+# BRAIN TUNE — EEG-Based Adaptive Music System
 
 **Team NeuroSpark**
 
@@ -12,7 +12,7 @@ The system supports both real-time EEG input and simulated EEG data, allowing us
 2)Harshitha N C
 3)Ananya V Shahapur 
 ----
-## ✨ Features
+##  Features
 
 * **EEG Signal Acquisition:** Supports EEG data from connected hardware and simulated signals.
 * **Real-Time Processing:** Processes EEG signals in windows to extract relevant features.
@@ -23,7 +23,7 @@ The system supports both real-time EEG input and simulated EEG data, allowing us
 
 ---
 
-## 🧠 System Workflow
+##  System Workflow
 
 1. Acquire EEG data from hardware or use simulated data.
 2. Preprocess the signal and extract relevant features.
@@ -34,7 +34,7 @@ The system supports both real-time EEG input and simulated EEG data, allowing us
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 | Component            | Technology                               |
 | -------------------- | ---------------------------------------- |
@@ -49,7 +49,7 @@ The system supports both real-time EEG input and simulated EEG data, allowing us
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 BRAIN-TUNE/
@@ -79,7 +79,7 @@ BRAIN-TUNE/
 
 ---
 
-## ⚙️ Installation and Setup
+##  Installation and Setup
 
 ### 1. Clone the repository
 
@@ -131,7 +131,7 @@ If sharing the project, provide a `.env.example` file containing only placeholde
 
 ---
 
-## ▶️ Running the Application
+##  Running the Application
 
 From the project root, run:
 
@@ -164,7 +164,7 @@ Music recommendations are intended for demonstration and research purposes. They
 
 ---
 
-## 🧪 Model Training
+##  Model Training
 
 The project includes a training script and notebook for dataset exploration and model development.
 
@@ -196,7 +196,7 @@ The demonstration video covers the hardware setup, EEG acquisition, real-time da
 **[View Project Presentation](https://docs.google.com/presentation/d/1FFgX9_heGfrnNmV3dwQtXlpJy-XA7KKa/edit?usp=sharing&ouid=115081753363421060141&rtpof=true&sd=true)**
 
 
-## 🧰 Troubleshooting
+## Troubleshooting
 
 * **Spotify authentication errors:** Check that the Client ID and Client Secret are correct and loaded from `.env`.
 * **No tracks returned:** Check your internet connection and Spotify API access.
@@ -206,7 +206,7 @@ The demonstration video covers the hardware setup, EEG acquisition, real-time da
 
 ---
 
-## 🔐 Security Notes
+## Security Notes
 
 * Never upload `.env` or expose Spotify credentials.
 * Keep private keys, tokens, and personal data out of the repository.
@@ -214,7 +214,7 @@ The demonstration video covers the hardware setup, EEG acquisition, real-time da
 
 ---
 
-## 👥 Team
+##  Team
 
 **Team NeuroSpark**
 
@@ -222,6 +222,6 @@ Project: **BRAIN TUNE — EEG-Based Adaptive Music System**
 
 ---
 
-## 📄 Disclaimer
+## Disclaimer
 
 BRAIN TUNE is a research and demonstration project. Cognitive workload estimates and music recommendations are experimental and should not be interpreted as clinical diagnoses or medical advice.
